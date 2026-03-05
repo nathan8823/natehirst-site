@@ -291,12 +291,12 @@
   <div class="about-grid">
     <div class="about-text fade-up">
       <h3>A <strong>data-driven operator</strong> who can't stop building on the side.</h3>
-      <p>I've spent 17+ years in consumer goods &mdash; leading global ecommerce and market expansion for brands like Owala, BlenderBottle, and KitchenAid. I think in systems, move fast, and obsess over what the data says.</p>
+      <p>I've spent <span id="years-text"></span> years in consumer goods &mdash; leading global ecommerce and market expansion for brands like Owala, BlenderBottle, and KitchenAid. I think in systems, move fast, and obsess over what the data says.</p>
       <p>Outside of work, I build software tools, explore AI applications, and occasionally teach. I'm drawn to the space where business strategy meets technical capability &mdash; that's where the interesting problems live.</p>
     </div>
     <div class="about-stats fade-up">
       <div class="stat">
-        <div class="stat-value">17+</div>
+        <div class="stat-value" id="years-stat"></div>
         <div class="stat-label">Years in Consumer Goods</div>
       </div>
       <div class="stat">
@@ -360,7 +360,7 @@
         <svg class="project-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13L13 5M13 5H6M13 5v7"/></svg>
       </div>
       <h3>Consumer Goods Playbook</h3>
-      <p>Frameworks and thinking from 17 years of scaling brands globally &mdash; category strategy, DTC, international expansion, and marketplace ops.</p>
+      <p>Frameworks and thinking from <span id="years-card"></span> years of scaling brands globally &mdash; category strategy, DTC, international expansion, and marketplace ops.</p>
       <div class="project-tags">
         <span>Strategy</span><span>CPG</span><span>Ecommerce</span>
       </div>
@@ -401,6 +401,14 @@
 </footer>
 
 <script>
+  // Dynamic years in consumer goods (started Dec 6, 2006)
+  const start = new Date(2006, 11, 6);
+  const now = new Date();
+  const years = Math.floor((now - start) / (365.25 * 24 * 60 * 60 * 1000));
+  document.getElementById('years-text').textContent = years + '+';
+  document.getElementById('years-stat').textContent = years + '+';
+  document.getElementById('years-card').textContent = years;
+
   // Scroll observer for animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
